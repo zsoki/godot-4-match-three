@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ns5kmwot5ei7"]
+
+[ext_resource type="Script" path="res://Level/Arrow.gd" id="1_avliu"]
+
+[node name="Arrow" type="Line2D"]
+script = ExtResource( "1_avliu" )

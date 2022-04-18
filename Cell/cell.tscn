@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cepkqx1j6ic20"]
+
+[ext_resource type="Script" path="res://Cell/Cell.gd" id="1_3p61d"]
+[ext_resource type="Shape2D" uid="uid://b2mnalcq0wgfl" path="res://Cell/CellShape2D.tres" id="2_bl6ru"]
+
+[node name="Cell" type="Area2D"]
+script = ExtResource( "1_3p61d" )
+_debug_label = NodePath("DebugLabel")
+cell_shape = ExtResource( "2_bl6ru" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource( "2_bl6ru" )
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -56.0
+offset_right = 32.0
+offset_bottom = -33.0
+text = "(X, Y)"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_cell_input_event"]

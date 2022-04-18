@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://drho6l8t3xcdu"]
+
+[ext_resource type="Script" path="res://Level/Level.gd" id="1_lt81b"]
+[ext_resource type="PackedScene" uid="uid://bpcv3g3otdgom" path="res://Gem/gem.tscn" id="2_e3nyd"]
+[ext_resource type="PackedScene" uid="uid://cepkqx1j6ic20" path="res://Cell/cell.tscn" id="3_4cwfp"]
+[ext_resource type="Script" path="res://Level/GameManager.gd" id="3_wchse"]
+
+[node name="Main" type="Node"]
+script = ExtResource( "1_lt81b" )
+gem_scene = ExtResource( "2_e3nyd" )
+cell_scene = ExtResource( "3_4cwfp" )
+cols = 6
+rows = 4
+cell_size = 120
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource( "3_wchse" )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="Grid" type="Node" parent="."]
+
+[node name="Gems" type="Node" parent="."]
+
+[connection signal="move_gem" from="GameManager" to="GameManager" method="_on_game_manager_move_gem"]
