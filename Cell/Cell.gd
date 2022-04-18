@@ -37,4 +37,4 @@ func set_gem(gem: Gem):
 
 func _on_cell_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("select")):
-		selected = game_manager.select_cell(self)
+		game_manager.select_cell(self)

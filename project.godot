@@ -9,15 +9,30 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "RefCounted",
+"class": &"AnimationEvent",
+"language": &"GDScript",
+"path": "res://Events/Animation/AnimationEvent.gd"
+}, {
 "base": "Line2D",
 "class": &"Arrow",
 "language": &"GDScript",
 "path": "res://Level/Arrow.gd"
 }, {
+"base": "AnimationEvent",
+"class": &"BatchMoveEvent",
+"language": &"GDScript",
+"path": "res://Events/Animation/BatchMoveEvent.gd"
+}, {
 "base": "Area2D",
 "class": &"Cell",
 "language": &"GDScript",
 "path": "res://Cell/Cell.gd"
+}, {
+"base": "RefCounted",
+"class": &"GameEvent",
+"language": &"GDScript",
+"path": "res://Events/Game/GameEvent.gd"
 }, {
 "base": "Node",
 "class": &"GameManager",
@@ -28,12 +43,21 @@ _global_script_classes=[{
 "class": &"Gem",
 "language": &"GDScript",
 "path": "res://Gem/Gem.gd"
+}, {
+"base": "AnimationEvent",
+"class": &"MoveEvent",
+"language": &"GDScript",
+"path": "res://Events/Animation/MoveEvent.gd"
 }]
 _global_script_class_icons={
+"AnimationEvent": "",
 "Arrow": "",
+"BatchMoveEvent": "",
 "Cell": "",
+"GameEvent": "",
 "GameManager": "",
-"Gem": ""
+"Gem": "",
+"MoveEvent": ""
 }
 
 [application]
