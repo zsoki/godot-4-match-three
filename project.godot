@@ -19,15 +19,15 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Level/Arrow.gd"
 }, {
-"base": "AnimationEvent",
-"class": &"BatchMoveEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/BatchMoveEvent.gd"
-}, {
 "base": "Area2D",
 "class": &"Cell",
 "language": &"GDScript",
 "path": "res://Cell/Cell.gd"
+}, {
+"base": "AnimationEvent",
+"class": &"CompositeAnimationEvent",
+"language": &"GDScript",
+"path": "res://Events/Animation/CompositeAnimationEvent.gd"
 }, {
 "base": "RefCounted",
 "class": &"GameEvent",
@@ -45,19 +45,19 @@ _global_script_classes=[{
 "path": "res://Gem/Gem.gd"
 }, {
 "base": "AnimationEvent",
-"class": &"MoveEvent",
+"class": &"MoveAnimationEvent",
 "language": &"GDScript",
-"path": "res://Events/Animation/MoveEvent.gd"
+"path": "res://Events/Animation/MoveAnimationEvent.gd"
 }]
 _global_script_class_icons={
 "AnimationEvent": "",
 "Arrow": "",
-"BatchMoveEvent": "",
 "Cell": "",
+"CompositeAnimationEvent": "",
 "GameEvent": "",
 "GameManager": "",
 "Gem": "",
-"MoveEvent": ""
+"MoveAnimationEvent": ""
 }
 
 [application]

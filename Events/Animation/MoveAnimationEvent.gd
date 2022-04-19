@@ -1,4 +1,4 @@
-class_name MoveEvent extends AnimationEvent
+class_name MoveAnimationEvent extends AnimationEvent
 
 var from: Gem = null
 var to: Gem = null
