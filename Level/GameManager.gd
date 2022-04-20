@@ -26,12 +26,12 @@ func _process(delta):
 		await event_move.play()
 		animation_playing = false
 
-func register_cell(cell: Cell, col: int, row: int) -> void:
-	coord_to_cell[[col, row]] = cell
-	cell_to_coord[cell] = [col, row]
+func register_cell(cell: Cell, coord: Vector2i) -> void:
+	coord_to_cell[coord] = cell
+	cell_to_coord[cell] = coord
 
-func register_gem(gem: Gem, col: int, row: int) -> void:
-	var cell: Cell = coord_to_cell[[col, row]]
+func register_gem(gem: Gem, coord: Vector2i) -> void:
+	var cell: Cell = coord_to_cell[coord]
 	gem_to_cell[gem] = cell
 	cell_to_gem[cell] = gem
 
@@ -61,46 +61,50 @@ func _play_turn() -> void:
 	selected_cells.clear()
 	
 	var batch_move_event: CompositeAnimationEvent = CompositeAnimationEvent.new()
-	animation_event_queue.push_front(batch_move_event)
-	batch_move_event.add(MoveAnimationEvent.new(from.gem, to.gem))
+	
+	print("Moving from %s to %s" % [from.coord, to.coord])
+	batch_move_event.add(MoveAnimationEvent.new(cell_to_gem[from], to))
 
-	if from.col == to.col: # Same column	
+	if from.coord.x == to.coord.x: # Same column	
 		var from_row: int
 		var to_row: int
 		var from_offset: int
 		var to_offset: int
-		if from.row > to.row:
-			from_row = to.row
-			to_row = from.row
+		if from.coord.y > to.coord.y:
+			from_row = to.coord.y
+			to_row = from.coord.y
 			from_offset = 0
 			to_offset = 1
 		else:
-			from_row = from.row
-			to_row = to.row
+			from_row = from.coord.y
+			to_row = to.coord.y
 			from_offset = 1
 			to_offset = 0
 		for row in range(from_row, to_row):
-			var from_cell: Cell = coord_to_cell[[from.col, row + from_offset]]
-			var to_cell: Cell = coord_to_cell[[from.col, row + to_offset]]
-			batch_move_event.add(MoveAnimationEvent.new(from_cell.gem, to_cell.gem))
-	if from.row == to.row: # Same row
+			var from_cell: Cell = coord_to_cell[Vector2i(from.coord.x, row + from_offset)]
+			var to_cell: Cell = coord_to_cell[Vector2i(from.coord.x, row + to_offset)]
+			print("Moving from %s to %s" % [from_cell.coord, to_cell.coord])
+			batch_move_event.add(MoveAnimationEvent.new(cell_to_gem[from_cell], to_cell))
+	if from.coord.y == to.coord.y: # Same row
 		var from_col: int
 		var to_col: int
 		var from_offset: int
 		var to_offset: int
-		if from.col > to.col:
-			from_col = to.col
-			to_col = from.col
+		if from.coord.x > to.coord.x:
+			from_col = to.coord.x
+			to_col = from.coord.x
 			from_offset = 0
 			to_offset = 1
 		else:
-			from_col = from.col
-			to_col = to.col
+			from_col = from.coord.x
+			to_col = to.coord.x
 			from_offset = 1
 			to_offset = 0
 		for col in range(from_col, to_col):
-			var from_cell: Cell = coord_to_cell[[col + from_offset, from.row]]
-			var to_cell: Cell = coord_to_cell[[col + to_offset, from.row]]
-			batch_move_event.add(MoveAnimationEvent.new(from_cell.gem, to_cell.gem))
+			var from_cell: Cell = coord_to_cell[Vector2i(col + from_offset, from.coord.y)]
+			var to_cell: Cell = coord_to_cell[Vector2i(col + to_offset, from.coord.y)]
+			print("Moving from %s to %s" % [from_cell.coord, to_cell.coord])
+			batch_move_event.add(MoveAnimationEvent.new(cell_to_gem[from_cell], to_cell))
 	
+	animation_event_queue.push_front(batch_move_event)
 	turn_playing = false

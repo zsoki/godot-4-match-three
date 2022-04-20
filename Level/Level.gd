@@ -19,14 +19,14 @@ func _ready():
 			var y_pos: int = vertical_margin + row * cell_size
 			
 			var cell: Cell = cell_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
-			cell.initialize($GameManager, col, row, Vector2(x_pos, y_pos), cell_size)
+			cell.initialize($GameManager, Vector2i(col, row), Vector2(x_pos, y_pos), cell_size)
 			$Grid.add_child(cell)
 			
 			var gem: Gem = gem_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 			cell.set_gem(gem)
 			$Gems.add_child(gem)
 			
-			$GameManager.register_cell(cell, col, row)
-			$GameManager.register_gem(gem, col, row)
+			$GameManager.register_cell(cell, Vector2i(col, row))
+			$GameManager.register_gem(gem, Vector2i(col, row))
 			
 			print("Instatiated cell at x: ", x_pos, " y: ", y_pos)

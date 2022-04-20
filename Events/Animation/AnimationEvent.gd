@@ -1,4 +1,4 @@
 class_name AnimationEvent
 
-func play():
+func play() -> void:
 	pass
