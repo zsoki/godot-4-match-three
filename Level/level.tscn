@@ -9,9 +9,9 @@
 script = ExtResource( "1_lt81b" )
 gem_scene = ExtResource( "2_e3nyd" )
 cell_scene = ExtResource( "3_4cwfp" )
-cols = 6
-rows = 4
-cell_size = 120
+cols = 10
+rows = 8
+cell_size = 110
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( "3_wchse" )
@@ -20,8 +20,6 @@ script = ExtResource( "3_wchse" )
 anchor_mode = 0
 current = true
 
-[node name="Grid" type="Node" parent="."]
+[node name="CellParent" type="Node" parent="."]
 
-[node name="Gems" type="Node" parent="."]
-
-[connection signal="move_gem" from="GameManager" to="GameManager" method="_on_game_manager_move_gem"]
+[node name="GemParent" type="Node" parent="."]

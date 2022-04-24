@@ -48,6 +48,11 @@ _global_script_classes=[{
 "class": &"MoveAnimationEvent",
 "language": &"GDScript",
 "path": "res://Events/Animation/MoveAnimationEvent.gd"
+}, {
+"base": "GameEvent",
+"class": &"MoveGameEvent",
+"language": &"GDScript",
+"path": "res://Events/Game/MoveGameEvent.gd"
 }]
 _global_script_class_icons={
 "AnimationEvent": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "GameEvent": "",
 "GameManager": "",
 "Gem": "",
-"MoveAnimationEvent": ""
+"MoveAnimationEvent": "",
+"MoveGameEvent": ""
 }
 
 [application]
