@@ -17,7 +17,7 @@ _global_script_classes=[{
 "base": "Line2D",
 "class": &"Arrow",
 "language": &"GDScript",
-"path": "res://Level/Arrow.gd"
+"path": "res://Cell/Arrow.gd"
 }, {
 "base": "Area2D",
 "class": &"Cell",

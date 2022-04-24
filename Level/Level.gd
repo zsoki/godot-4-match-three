@@ -27,6 +27,5 @@ func _ready():
 			$Gems.add_child(gem)
 			
 			$GameManager.register_cell(cell, Vector2i(col, row))
-			$GameManager.register_gem(gem, Vector2i(col, row))
 			
 			print("Instatiated cell at x: ", x_pos, " y: ", y_pos)

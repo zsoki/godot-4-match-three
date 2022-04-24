@@ -2,12 +2,20 @@ class_name Cell
 extends Area2D
 
 @export_node_path(Label) var _debug_label
+var debug_label: Label
+
+@export_node_path(Line2D) var _arrow
+var arrow: Arrow
+
 @export var cell_shape: RectangleShape2D
 
-var debug_label: Label
 var coord: Vector2i
 var game_manager: GameManager
-var gem: Gem
+
+var gem: Gem:
+	set(value):
+		gem = value
+		arrow.attach_to_gem(gem)
 
 var selected: bool = false:
 	set(value):
@@ -27,6 +35,7 @@ func initialize(game_manager: GameManager, coord: Vector2i, position: Vector2, c
 	cell_shape.size = Vector2(cell_size, cell_size)
 	debug_label = get_node(_debug_label)
 	debug_label.text = "%s" % coord
+	arrow = get_node(_arrow)
 	update()
 
 func set_gem(gem: Gem):
