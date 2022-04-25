@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpcv3g3otdgom"]
+[gd_scene load_steps=6 format=3 uid="uid://bpcv3g3otdgom"]
 
 [ext_resource type="Script" path="res://Gem/Gem.gd" id="1_2j1pi"]
 [ext_resource type="Texture2D" uid="uid://bm4l825vruigp" path="res://icon.png" id="2_13v6n"]
+[ext_resource type="Resource" path="res://Gem/Type/red_gem.tres" id="2_61fdu"]
+[ext_resource type="Resource" path="res://Gem/Type/green_gem.tres" id="3_22ai7"]
+[ext_resource type="Resource" path="res://Gem/Type/blue_gem.tres" id="4_5n3ki"]
 
 [node name="Gem" type="Node2D"]
 script = ExtResource( "1_2j1pi" )
+gem_type_resource = [ExtResource( "2_61fdu" ), ExtResource( "3_22ai7" ), ExtResource( "4_5n3ki" )]
+_gem_sprite = NodePath("GemSprite")
 
 [node name="GemSprite" type="Sprite2D" parent="."]
 texture = ExtResource( "2_13v6n" )
