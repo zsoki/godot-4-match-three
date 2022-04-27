@@ -13,6 +13,8 @@ func _ready():
 	var horizontal_margin: int = (view_rect_size.x - (cell_size * cols)) / 2
 	var vertical_margin: int = (view_rect_size.y - (cell_size * rows)) / 2
 	
+	$GameManager.set_board_size(Vector2i(cols, rows))
+	
 	for row in range(0, rows):
 		for col in range(0, cols):
 			var x_pos: int = horizontal_margin + col * cell_size

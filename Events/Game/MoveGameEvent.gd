@@ -19,8 +19,6 @@ func run() -> void:
 	for selected_cell in selected_cells:
 		selected_cell.selected = false
 	selected_cells.clear()
-	
-	var batch_move_event: CompositeAnimationEvent = CompositeAnimationEvent.new()
 	var moved_gem: Gem = from_cell.gem
 
 	var from_col_range: Array[int]
@@ -55,6 +53,7 @@ func run() -> void:
 				from_col_range.append(from_cell.coord.x)
 				to_col_range.append(from_cell.coord.x)
 
+	var batch_move_event: CompositeAnimationEvent = CompositeAnimationEvent.new()
 	var empty_cell: Cell = null
 	for i in from_col_range.size():
 		var cell_from: Cell = coord_to_cell[Vector2i(from_col_range[i], from_row_range[i])]

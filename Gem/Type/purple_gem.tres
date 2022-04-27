@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dj5bbtp7l1q56"]
+
+[ext_resource type="Script" path="res://Gem/Type/GemType.gd" id="1_bgaa2"]
+
+[resource]
+script = ExtResource( "1_bgaa2" )
+color = Color(1, 0, 1, 1)
+name = "Purple"

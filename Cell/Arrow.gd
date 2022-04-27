@@ -2,7 +2,7 @@ class_name Arrow
 extends Line2D
 
 enum FollowTarget {
-	MOUSE, GEM
+	NONE, MOUSE, GEM
 }
 
 var follow_target: FollowTarget
@@ -17,6 +17,9 @@ func _process(delta):
 		FollowTarget.MOUSE:
 			set_point_position(1, get_local_mouse_position())
 		FollowTarget.GEM:
+			if gem == null:
+				follow_target = FollowTarget.NONE
+				continue
 			set_point_position(1, gem.position - global_position)
 		_: pass
 	

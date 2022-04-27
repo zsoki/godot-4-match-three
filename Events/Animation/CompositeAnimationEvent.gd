@@ -11,4 +11,6 @@ func add_all(animation_events: Array[AnimationEvent]) -> void:
 func play() -> void:
 	for animation_event in animation_events:
 		animation_event.play()
+#	TODO hack for waiting for the animations
+	await Engine.get_main_loop().create_timer(.4).timeout
 	animation_events.clear()

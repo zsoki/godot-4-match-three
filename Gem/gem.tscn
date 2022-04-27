@@ -1,15 +1,65 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpcv3g3otdgom"]
+[gd_scene load_steps=9 format=3 uid="uid://drgp1qn7mfbe0"]
 
 [ext_resource type="Script" path="res://Gem/Gem.gd" id="1_2j1pi"]
 [ext_resource type="Texture2D" uid="uid://bm4l825vruigp" path="res://icon.png" id="2_13v6n"]
-[ext_resource type="Resource" path="res://Gem/Type/red_gem.tres" id="2_61fdu"]
-[ext_resource type="Resource" path="res://Gem/Type/green_gem.tres" id="3_22ai7"]
-[ext_resource type="Resource" path="res://Gem/Type/blue_gem.tres" id="4_5n3ki"]
+[ext_resource type="Resource" uid="uid://bnc042g6nb18t" path="res://Gem/Type/red_gem.tres" id="2_61fdu"]
+[ext_resource type="Resource" uid="uid://xx6ouxw4c5k2" path="res://Gem/Type/green_gem.tres" id="3_22ai7"]
+[ext_resource type="Resource" uid="uid://dxayvnnedlk3d" path="res://Gem/Type/blue_gem.tres" id="4_5n3ki"]
+[ext_resource type="Resource" uid="uid://dj5bbtp7l1q56" path="res://Gem/Type/purple_gem.tres" id="5_yay5l"]
+
+[sub_resource type="Animation" id="Animation_xngc8"]
+resource_name = "Destroy"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qtojp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [node name="Gem" type="Node2D"]
 script = ExtResource( "1_2j1pi" )
-gem_type_resource = [ExtResource( "2_61fdu" ), ExtResource( "3_22ai7" ), ExtResource( "4_5n3ki" )]
+gem_type_resource = [ExtResource( "2_61fdu" ), ExtResource( "3_22ai7" ), ExtResource( "4_5n3ki" ), ExtResource( "5_yay5l" )]
 _gem_sprite = NodePath("GemSprite")
+_destroy_animation = NodePath("DestroyAnimation")
 
 [node name="GemSprite" type="Sprite2D" parent="."]
 texture = ExtResource( "2_13v6n" )
+
+[node name="DestroyAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../GemSprite")
+anims/Destroy = SubResource( "Animation_xngc8" )
+anims/RESET = SubResource( "Animation_qtojp" )
