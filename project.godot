@@ -39,6 +39,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Events/Animation/DestroyAnimationEvent.gd"
 }, {
+"base": "GameEvent",
+"class": &"DropGameEvent",
+"language": &"GDScript",
+"path": "res://Events/Game/DropGameEvent.gd"
+}, {
 "base": "RefCounted",
 "class": &"GameEvent",
 "language": &"GDScript",
@@ -68,6 +73,16 @@ _global_script_classes=[{
 "class": &"MoveGameEvent",
 "language": &"GDScript",
 "path": "res://Events/Game/MoveGameEvent.gd"
+}, {
+"base": "AnimationEvent",
+"class": &"SpawnAnimationEvent",
+"language": &"GDScript",
+"path": "res://Events/Animation/SpawnAnimationEvent.gd"
+}, {
+"base": "GameEvent",
+"class": &"SpawnGameEvent",
+"language": &"GDScript",
+"path": "res://Events/Game/SpawnGameEvent.gd"
 }]
 _global_script_class_icons={
 "AnimationEvent": "",
@@ -76,12 +91,15 @@ _global_script_class_icons={
 "ClearGameEvent": "",
 "CompositeAnimationEvent": "",
 "DestroyAnimationEvent": "",
+"DropGameEvent": "",
 "GameEvent": "",
 "GameManager": "",
 "Gem": "",
 "GemType": "",
 "MoveAnimationEvent": "",
-"MoveGameEvent": ""
+"MoveGameEvent": "",
+"SpawnAnimationEvent": "",
+"SpawnGameEvent": ""
 }
 
 [application]

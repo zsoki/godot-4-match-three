@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drgp1qn7mfbe0"]
+[gd_scene load_steps=11 format=3 uid="uid://drgp1qn7mfbe0"]
 
 [ext_resource type="Script" path="res://Gem/Gem.gd" id="1_2j1pi"]
 [ext_resource type="Texture2D" uid="uid://bm4l825vruigp" path="res://icon.png" id="2_13v6n"]
@@ -6,6 +6,21 @@
 [ext_resource type="Resource" uid="uid://xx6ouxw4c5k2" path="res://Gem/Type/green_gem.tres" id="3_22ai7"]
 [ext_resource type="Resource" uid="uid://dxayvnnedlk3d" path="res://Gem/Type/blue_gem.tres" id="4_5n3ki"]
 [ext_resource type="Resource" uid="uid://dj5bbtp7l1q56" path="res://Gem/Type/purple_gem.tres" id="5_yay5l"]
+
+[sub_resource type="Animation" id="Animation_qtojp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_xngc8"]
 resource_name = "Destroy"
@@ -35,8 +50,9 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qtojp"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ckf4a"]
+resource_name = "Spawn"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,22 +60,44 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhoh4"]
+_data = {
+"Destroy": SubResource( "Animation_xngc8" ),
+"RESET": SubResource( "Animation_qtojp" ),
+"Spawn": SubResource( "Animation_ckf4a" )
 }
 
 [node name="Gem" type="Node2D"]
 script = ExtResource( "1_2j1pi" )
 gem_type_resource = [ExtResource( "2_61fdu" ), ExtResource( "3_22ai7" ), ExtResource( "4_5n3ki" ), ExtResource( "5_yay5l" )]
 _gem_sprite = NodePath("GemSprite")
-_destroy_animation = NodePath("DestroyAnimation")
+_animation_player = NodePath("AnimationPlayer")
 
 [node name="GemSprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource( "2_13v6n" )
 
-[node name="DestroyAnimation" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GemSprite")
-anims/Destroy = SubResource( "Animation_xngc8" )
-anims/RESET = SubResource( "Animation_qtojp" )
+libraries = {
+"": SubResource( "AnimationLibrary_nhoh4" )
+}

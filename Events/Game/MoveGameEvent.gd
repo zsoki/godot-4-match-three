@@ -1,16 +1,18 @@
 class_name MoveGameEvent extends GameEvent
 
+
 var selected_cells: Array[Cell]
 var coord_to_cell: Dictionary
 var game_event_queue: Array[GameEvent]
 var animation_event_queue: Array[AnimationEvent]
 
-func _init(selected_cells: Array[Cell], coord_to_cell: Dictionary,
-	game_event_queue: Array[GameEvent], animation_event_queue: Array[AnimationEvent]):
-	self.selected_cells = selected_cells
-	self.coord_to_cell = coord_to_cell
-	self.game_event_queue = game_event_queue
-	self.animation_event_queue = animation_event_queue
+
+func _init(game_manager: GameManager):
+	selected_cells = game_manager.selected_cells
+	coord_to_cell = game_manager.coord_to_cell
+	game_event_queue = game_manager.game_event_queue
+	animation_event_queue = game_manager.animation_event_queue
+	
 
 func run() -> void:
 	var from_cell: Cell = selected_cells[0]
@@ -65,7 +67,8 @@ func run() -> void:
 		batch_move_event.add(MoveAnimationEvent.new(moved_gem, empty_cell))
 	
 	animation_event_queue.push_front(batch_move_event)
-	
+
+
 func _move_gem(from_cell: Cell, to_cell: Cell, batch_move_event: CompositeAnimationEvent) -> Cell:
 	print("Move from %s to %s" % [from_cell.coord, to_cell.coord])
 	batch_move_event.add(MoveAnimationEvent.new(from_cell.gem, to_cell))

@@ -14,6 +14,7 @@ func _ready():
 	var vertical_margin: int = (view_rect_size.y - (cell_size * rows)) / 2
 	
 	$GameManager.set_board_size(Vector2i(cols, rows))
+	$GameManager.initialize_gem_builder($GemParent, gem_scene)
 	
 	for row in range(0, rows):
 		for col in range(0, cols):
@@ -25,8 +26,5 @@ func _ready():
 			$CellParent.add_child(cell)
 			$GameManager.register_cell(cell, Vector2i(col, row))
 			
-			var gem: Gem = gem_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
-			cell.set_gem(gem)
-			$GemParent.add_child(gem)
-			
-			print("Instatiated cell at x: ", x_pos, " y: ", y_pos)
+			var gem: Gem = $GameManager.instantiate_gem(cell)
+			gem.spawn()

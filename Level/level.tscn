@@ -9,8 +9,8 @@
 script = ExtResource( "1_lt81b" )
 gem_scene = ExtResource( "2_e3nyd" )
 cell_scene = ExtResource( "3_4cwfp" )
-cols = 10
-rows = 8
+cols = 12
+rows = 7
 cell_size = 110
 
 [node name="GameManager" type="Node" parent="."]

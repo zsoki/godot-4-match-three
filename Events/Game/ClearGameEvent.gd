@@ -3,17 +3,20 @@ class_name ClearGameEvent extends GameEvent
 # TODO configurable
 const required_consequent_for_match: int = 3
 
+var game_manager: GameManager
 var board_size: Vector2i
 var coord_to_cell: Dictionary
 var game_event_queue: Array[GameEvent]
 var animation_event_queue: Array[AnimationEvent]
 
-func _init(board_size: Vector2i, coord_to_cell: Dictionary,
-	game_event_queue: Array[GameEvent], animation_event_queue: Array[AnimationEvent]):
-	self.board_size = board_size
-	self.coord_to_cell = coord_to_cell
-	self.game_event_queue = game_event_queue
-	self.animation_event_queue = animation_event_queue
+
+func _init(game_manager: GameManager):
+	self.game_manager = game_manager
+	board_size = game_manager.board_size
+	coord_to_cell = game_manager.coord_to_cell
+	game_event_queue = game_manager.game_event_queue
+	animation_event_queue = game_manager.animation_event_queue
+
 
 func run() -> void:
 	var matched_cells: Array[Cell]
@@ -52,8 +55,11 @@ func run() -> void:
 	for cell in matched_cells:
 		destroy_gems.append(cell.gem)
 		cell.gem = null
+		print("Destroyed cell at %s" % cell.coord)
 
-	animation_event_queue.push_front(DestroyAnimationEvent.new(destroy_gems))
+	if destroy_gems.size() != 0:
+		animation_event_queue.push_front(DestroyAnimationEvent.new(destroy_gems))
+		game_event_queue.push_front(DropGameEvent.new(game_manager))
 	
 
 func _handle_match(consequent_cells: Array[Cell], matched_cells: Array[Cell], cell: Cell) -> GemType:
