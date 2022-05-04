@@ -1,16 +1,22 @@
-class_name CompositeAnimationEvent extends AnimationEvent
+class_name CompositeAnimationEvent
+extends AnimationEvent
 
-var animation_events: Array[AnimationEvent]
 
-func add(animation_event: AnimationEvent) -> void:
-	animation_events.append(animation_event)
-	
-func add_all(animation_events: Array[AnimationEvent]) -> void:
-	self.animation_events = animation_events
+var _animation_events: Array[AnimationEvent]
 
-func play() -> void:
-	for animation_event in animation_events:
-		animation_event.play()
+
+func play_animation() -> void:
+	for animation_event in _animation_events:
+		animation_event.play_animation()
+
 #	TODO hack for waiting for the animations
 	await Engine.get_main_loop().create_timer(.4).timeout
-	animation_events.clear()
+	_animation_events.clear()
+
+
+func add(animation_event: AnimationEvent) -> void:
+	_animation_events.append(animation_event)
+
+	
+func add_all(animation_events: Array[AnimationEvent]) -> void:
+	_animation_events = animation_events

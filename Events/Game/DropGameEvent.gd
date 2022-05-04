@@ -1,21 +1,18 @@
-class_name DropGameEvent extends GameEvent
+class_name DropGameEvent
+extends GameEvent
 
-var game_manager: GameManager
-var board_size: Vector2i
-var coord_to_cell: Dictionary
-var game_event_queue: Array[GameEvent]
-var animation_event_queue: Array[AnimationEvent]
+
+var _game_manager: GameManager
+
 
 func _init(game_manager: GameManager):
-	self.game_manager = game_manager
-	board_size = game_manager.board_size
-	coord_to_cell = game_manager.coord_to_cell
-	game_event_queue = game_manager.game_event_queue
-	animation_event_queue = game_manager.animation_event_queue
+	_game_manager = game_manager
 
 
-func run() -> void:
+func run_game_event() -> void:
 	var drop_animation_event := CompositeAnimationEvent.new()
+	var board_size := _game_manager.board_size
+	var coord_to_cell := _game_manager.coord_to_cell
 	
 	for col in board_size.x:
 		for row in range(board_size.y - 1, -1, -1):
@@ -37,5 +34,5 @@ func run() -> void:
 					drop_animation_event.add(MoveAnimationEvent.new(empty_cell.gem, empty_cell))
 					break
 	
-	animation_event_queue.push_front(drop_animation_event)
-	game_event_queue.push_front(SpawnGameEvent.new(game_manager))
+	_game_manager.animation_event_queue.push_front(drop_animation_event)
+	_game_manager.game_event_queue.push_front(SpawnGameEvent.new(_game_manager))

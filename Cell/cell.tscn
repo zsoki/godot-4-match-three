@@ -6,8 +6,6 @@
 
 [node name="Cell" type="Area2D"]
 script = ExtResource( "1_3p61d" )
-_debug_label = NodePath("DebugLabel")
-_arrow = NodePath("Arrow")
 cell_shape = ExtResource( "2_bl6ru" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

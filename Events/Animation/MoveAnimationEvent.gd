@@ -1,15 +1,19 @@
-class_name MoveAnimationEvent extends AnimationEvent
+class_name MoveAnimationEvent
+extends AnimationEvent
 
-var gem: Gem = null
-var cell: Cell = null
-var animation_duration: float = 0.5
+
+const ANIMATION_DURATION: float = 0.5
+
+var _gem: Gem = null
+var _cell: Cell = null
+
 
 func _init(gem: Gem, cell: Cell):
-	super()
-	self.gem = gem
-	self.cell = cell
+	_gem = gem
+	_cell = cell
 
-func play() -> void:
-	var tween := gem.get_tree().create_tween().bind_node(gem)
-	tween.tween_property(gem, "position", cell.position, animation_duration).set_trans(Tween.TRANS_BACK)
+
+func play_animation() -> void:
+	var tween := _gem.get_tree().create_tween().bind_node(_gem)
+	tween.tween_property(_gem, "position", _cell.position, ANIMATION_DURATION).set_trans(Tween.TRANS_BACK)
 	await tween.finished

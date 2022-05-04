@@ -88,12 +88,9 @@ _data = {
 [node name="Gem" type="Node2D"]
 script = ExtResource( "1_2j1pi" )
 gem_type_resource = [ExtResource( "2_61fdu" ), ExtResource( "3_22ai7" ), ExtResource( "4_5n3ki" ), ExtResource( "5_yay5l" )]
-_gem_sprite = NodePath("GemSprite")
-_animation_player = NodePath("AnimationPlayer")
 
 [node name="GemSprite" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource( "2_13v6n" )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

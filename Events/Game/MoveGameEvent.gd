@@ -1,27 +1,24 @@
-class_name MoveGameEvent extends GameEvent
+class_name MoveGameEvent
+extends GameEvent
 
 
-var selected_cells: Array[Cell]
-var coord_to_cell: Dictionary
-var game_event_queue: Array[GameEvent]
-var animation_event_queue: Array[AnimationEvent]
+var _game_manager: GameManager
 
 
 func _init(game_manager: GameManager):
-	selected_cells = game_manager.selected_cells
-	coord_to_cell = game_manager.coord_to_cell
-	game_event_queue = game_manager.game_event_queue
-	animation_event_queue = game_manager.animation_event_queue
-	
+	_game_manager = game_manager
 
-func run() -> void:
-	var from_cell: Cell = selected_cells[0]
-	var to_cell: Cell = selected_cells[1]
+
+func run_game_event() -> void:
+	var selected_cells := _game_manager.selected_cells
+	var from_cell := selected_cells[0]
+	var to_cell := selected_cells[1]
 	
 	for selected_cell in selected_cells:
 		selected_cell.selected = false
 	selected_cells.clear()
-	var moved_gem: Gem = from_cell.gem
+
+	var moved_gem := from_cell.gem
 
 	var from_col_range: Array[int]
 	var from_row_range: Array[int]
@@ -55,18 +52,20 @@ func run() -> void:
 				from_col_range.append(from_cell.coord.x)
 				to_col_range.append(from_cell.coord.x)
 
-	var batch_move_event: CompositeAnimationEvent = CompositeAnimationEvent.new()
+	var batch_move_event := CompositeAnimationEvent.new()
 	var empty_cell: Cell = null
+	var coord_to_cell := _game_manager.coord_to_cell
+	
 	for i in from_col_range.size():
 		var cell_from: Cell = coord_to_cell[Vector2i(from_col_range[i], from_row_range[i])]
 		var cell_to: Cell = coord_to_cell[Vector2i(to_col_range[i], to_row_range[i])]
 		empty_cell = _move_gem(cell_from, cell_to, batch_move_event)
 
-	if not empty_cell == null:
+	if empty_cell != null:
 		empty_cell.gem = moved_gem
 		batch_move_event.add(MoveAnimationEvent.new(moved_gem, empty_cell))
 	
-	animation_event_queue.push_front(batch_move_event)
+	_game_manager.animation_event_queue.push_front(batch_move_event)
 
 
 func _move_gem(from_cell: Cell, to_cell: Cell, batch_move_event: CompositeAnimationEvent) -> Cell:

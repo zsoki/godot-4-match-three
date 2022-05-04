@@ -1,25 +1,21 @@
-class_name ClearGameEvent extends GameEvent
+class_name ClearGameEvent
+extends GameEvent
+
 
 # TODO configurable
-const required_consequent_for_match: int = 3
+const REQUIRED_CONSEQUENT_FOR_MATCH: int = 3
 
-var game_manager: GameManager
-var board_size: Vector2i
-var coord_to_cell: Dictionary
-var game_event_queue: Array[GameEvent]
-var animation_event_queue: Array[AnimationEvent]
+var _game_manager: GameManager
 
 
 func _init(game_manager: GameManager):
-	self.game_manager = game_manager
-	board_size = game_manager.board_size
-	coord_to_cell = game_manager.coord_to_cell
-	game_event_queue = game_manager.game_event_queue
-	animation_event_queue = game_manager.animation_event_queue
+	_game_manager = game_manager
 
 
-func run() -> void:
+func run_game_event() -> void:
 	var matched_cells: Array[Cell]
+	var board_size := _game_manager.board_size
+	var coord_to_cell := _game_manager.coord_to_cell
 	
 #	Iterate through rows
 	for row in board_size.y:
@@ -36,7 +32,7 @@ func run() -> void:
 			else:
 				consequent_type = _handle_match(consequent_cells, matched_cells, cell)
 	
-#	Iterate through cols
+#	Iterate through columns
 	for col in board_size.x:
 		var consequent_type: GemType = null
 		var consequent_cells: Array[Cell]
@@ -52,18 +48,19 @@ func run() -> void:
 				consequent_type = _handle_match(consequent_cells, matched_cells, cell)
 	
 	var destroy_gems: Array[Gem]
+	
 	for cell in matched_cells:
 		destroy_gems.append(cell.gem)
 		cell.gem = null
 		print("Destroyed cell at %s" % cell.coord)
 
 	if destroy_gems.size() != 0:
-		animation_event_queue.push_front(DestroyAnimationEvent.new(destroy_gems))
-		game_event_queue.push_front(DropGameEvent.new(game_manager))
-	
+		_game_manager.animation_event_queue.push_front(DestroyAnimationEvent.new(destroy_gems))
+		_game_manager.game_event_queue.push_front(DropGameEvent.new(_game_manager))
+
 
 func _handle_match(consequent_cells: Array[Cell], matched_cells: Array[Cell], cell: Cell) -> GemType:
-	if consequent_cells.size() >= required_consequent_for_match:
+	if consequent_cells.size() >= REQUIRED_CONSEQUENT_FOR_MATCH:
 		for cons_cell in consequent_cells: matched_cells.append(cons_cell)
 	consequent_cells.clear()
 	consequent_cells.append(cell)

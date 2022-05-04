@@ -1,47 +1,52 @@
 class_name Cell
 extends Area2D
 
-@export_node_path(Label) var _debug_label
-var debug_label: Label
-
-@export_node_path(Line2D) var _arrow
-var arrow: Arrow
 
 @export var cell_shape: RectangleShape2D
 
 var coord: Vector2i
-var game_manager: GameManager
-
 var gem: Gem:
-	set(value):
-		gem = value
-		arrow.attach_to_gem(gem)
-
+	set = _set_gem
 var selected: bool = false:
-	set(value):
-		selected = value
-		update()
-		print("%s cell has been %s" % [coord, "SELECTED" if value else "UNSELECTED"])
+	set = _set_selected
+
+var _game_manager: GameManager
+
+@onready var debug_label: Label = $DebugLabel
+@onready var arrow: Line2D = $Arrow
+
 
 func _draw():
 	var border_color: Color = Color.RED if selected else Color.WHITE
 	var border_thickness: int = 4 if selected else 2
 	draw_rect(Rect2(Vector2(-(cell_shape.size / 2)), cell_shape.size), border_color, false, border_thickness)
 
+
 func initialize(game_manager: GameManager, coord: Vector2i, position: Vector2, cell_size: int):
-	self.game_manager = game_manager
 	self.coord = coord
 	self.position = position
+	_game_manager = game_manager
 	cell_shape.size = Vector2(cell_size, cell_size)
-	debug_label = get_node(_debug_label)
 	debug_label.text = "%s" % coord
-	arrow = get_node(_arrow)
 	update()
 
-func set_gem(gem: Gem):
+
+func set_gem_in_cell_position(gem: Gem) -> void:
 	self.gem = gem
 	gem.position = position
 
+
+func _set_gem(value: Gem) -> void:
+	gem = value
+	arrow.attach_to_gem(gem)
+	
+	
+func _set_selected(value: bool) -> void:
+	selected = value
+	update()
+	print("%s cell has been %s" % [coord, "SELECTED" if value else "UNSELECTED"])
+
+
 func _on_cell_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("select")):
-		game_manager.select_cell(self)
+		_game_manager.select_cell(self)

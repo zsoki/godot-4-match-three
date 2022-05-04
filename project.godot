@@ -52,7 +52,7 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"GameManager",
 "language": &"GDScript",
-"path": "res://Level/GameManager.gd"
+"path": "res://Level/Level.gd"
 }, {
 "base": "Node2D",
 "class": &"Gem",
