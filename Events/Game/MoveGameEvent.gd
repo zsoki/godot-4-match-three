@@ -11,12 +11,11 @@ func _init(game_manager: GameManager):
 
 func run_game_event() -> void:
 	var selected_cells := _game_manager.selected_cells
-	var from_cell := selected_cells[0]
-	var to_cell := selected_cells[1]
+	var from_cell: Cell = selected_cells.pop_back()
+	var to_cell: Cell = selected_cells.pop_back()
 	
-	for selected_cell in selected_cells:
-		selected_cell.selected = false
-	selected_cells.clear()
+	from_cell.selected = false
+	to_cell.selected = false
 
 	var moved_gem := from_cell.gem
 

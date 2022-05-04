@@ -37,11 +37,17 @@ func _ready():
 			var cell: Cell = _instantiate_cell(coord, pos)
 			var gem: Gem = instantiate_gem(cell)
 			gem.spawn()
-			
+
 
 func _process(delta):
 	if not _animation_playing and animation_event_queue.size() > 0:
 		_play_animation()
+	elif (
+		not _animation_playing
+		and animation_event_queue.size() == 0
+		and Input.is_action_just_pressed("end_turn")
+	): 
+		_play_turn()
 
 
 func instantiate_gem(cell: Cell) -> Gem:
@@ -54,15 +60,13 @@ func instantiate_gem(cell: Cell) -> Gem:
 
 func select_cell(cell: Cell) -> void:
 	if _turn_playing: return
-
+	
 	var selected_index: int = selected_cells.find(cell)
 	var not_found = selected_index < 0
-	if  not_found && selected_cells.size() < max_seleciton:
-		selected_cells.append(cell)
-		if (selected_cells.size() == max_seleciton):
-			_play_turn()
-		else:
-			cell.selected = true
+	
+	if not_found:
+		selected_cells.push_front(cell)
+		cell.selected = true
 	else:
 		selected_cells.remove_at(selected_index)
 		cell.selected = false
@@ -84,11 +88,13 @@ func _play_animation() -> void:
 
 
 func _play_turn() -> void:
-	_turn_playing = true
-	game_event_queue.push_front(MoveGameEvent.new(self))
-	game_event_queue.push_front(ClearGameEvent.new(self))
-	
-	while game_event_queue.size() > 0:
-		game_event_queue.pop_back().run_game_event()
-	
-	_turn_playing = false
+	while selected_cells.size() > 1:
+		game_event_queue.push_front(MoveGameEvent.new(self))
+		game_event_queue.push_front(ClearGameEvent.new(self))
+
+		while game_event_queue.size() > 0:
+			game_event_queue.pop_back().run_game_event()
+
+
+func _on_play_turn_button_pressed(button_pressed):
+	_play_turn()

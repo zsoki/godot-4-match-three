@@ -18,3 +18,13 @@ current = true
 [node name="CellParent" type="Node" parent="."]
 
 [node name="GemParent" type="Node" parent="."]
+
+[node name="PlayTurnButton" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 928.0
+offset_right = 1120.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 33
+text = "Play turn (or enter)"
+
+[connection signal="pressed" from="PlayTurnButton" to="." method="_on_play_turn_button_pressed"]
