@@ -17,9 +17,13 @@ var _game_manager: GameManager
 
 
 func _draw():
-	var border_color: Color = Color.RED if selected else Color.WHITE
-	var border_thickness: int = 4 if selected else 2
-	draw_rect(Rect2(Vector2(-(cell_shape.size / 2)), cell_shape.size), border_color, false, border_thickness)
+	var border_color := Color.RED if selected else Color.WHITE_SMOKE
+	var border_thickness := 6 if selected else 2
+	var border_vector := Vector2(border_thickness, border_thickness)
+
+	var start_position := Vector2(-(cell_shape.size / 2) + border_vector)
+	var width := cell_shape.size - border_vector * 2
+	draw_rect(Rect2(start_position, width), border_color, false, border_thickness)
 
 
 func initialize(game_manager: GameManager, coord: Vector2i, position: Vector2, cell_size: int):
@@ -27,7 +31,11 @@ func initialize(game_manager: GameManager, coord: Vector2i, position: Vector2, c
 	self.position = position
 	_game_manager = game_manager
 	cell_shape.size = Vector2(cell_size, cell_size)
-	debug_label.text = "%s" % coord
+	if Global.debug:
+		debug_label.visible = true
+		debug_label.text = "%s" % coord
+	else:
+		debug_label.visible = false
 	update()
 
 
@@ -38,7 +46,8 @@ func set_gem_in_cell_position(gem: Gem) -> void:
 
 func _set_gem(value: Gem) -> void:
 	gem = value
-	arrow.attach_to_gem(gem)
+	if Global.debug:
+		arrow.attach_to_gem(gem)
 	
 	
 func _set_selected(value: bool) -> void:

@@ -30,7 +30,7 @@ func _ready():
 		for col in range(0, board_size.x):
 			var coord := Vector2i(col, row)
 			
-			var x_pos: int = horizontal_margin + col * cell_size
+			var x_pos: int = horizontal_margin + col * cell_size + cell_size / 2
 			var y_pos: int = vertical_margin + row * cell_size
 			var pos := Vector2(x_pos, y_pos)
 			
@@ -96,5 +96,5 @@ func _play_turn() -> void:
 			game_event_queue.pop_back().run_game_event()
 
 
-func _on_play_turn_button_pressed(button_pressed):
+func _on_play_turn_button_pressed():
 	_play_turn()
