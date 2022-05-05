@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://drgp1qn7mfbe0"]
+[gd_scene load_steps=11 format=3 uid="uid://cqa3hqblyrr5o"]
 
 [ext_resource type="Script" path="res://Gem/Gem.gd" id="1_2j1pi"]
-[ext_resource type="Texture2D" uid="uid://bm4l825vruigp" path="res://icon.png" id="2_13v6n"]
-[ext_resource type="Resource" uid="uid://bnc042g6nb18t" path="res://Gem/Type/red_gem.tres" id="2_61fdu"]
-[ext_resource type="Resource" uid="uid://xx6ouxw4c5k2" path="res://Gem/Type/green_gem.tres" id="3_22ai7"]
-[ext_resource type="Resource" uid="uid://dxayvnnedlk3d" path="res://Gem/Type/blue_gem.tres" id="4_5n3ki"]
-[ext_resource type="Resource" uid="uid://dj5bbtp7l1q56" path="res://Gem/Type/purple_gem.tres" id="5_yay5l"]
+[ext_resource type="Resource" uid="uid://bnc042g6nb18t" path="res://Gem/Type/Red/red_gem.tres" id="2_3b2qe"]
+[ext_resource type="Resource" uid="uid://xx6ouxw4c5k2" path="res://Gem/Type/Green/green_gem.tres" id="3_q7w40"]
+[ext_resource type="Resource" uid="uid://dxayvnnedlk3d" path="res://Gem/Type/Blue/blue_gem.tres" id="4_qfpc8"]
+[ext_resource type="Resource" uid="uid://dj5bbtp7l1q56" path="res://Gem/Type/Pink/pink_gem.tres" id="5_ym6ux"]
+[ext_resource type="Resource" uid="uid://b8lmt6jjqomgj" path="res://Gem/Type/Yellow/yellow_gem.tres" id="6_4lq38"]
 
 [sub_resource type="Animation" id="Animation_qtojp"]
 length = 0.001
@@ -87,11 +87,10 @@ _data = {
 
 [node name="Gem" type="Node2D"]
 script = ExtResource( "1_2j1pi" )
-gem_type_resource = [ExtResource( "2_61fdu" ), ExtResource( "3_22ai7" ), ExtResource( "4_5n3ki" ), ExtResource( "5_yay5l" )]
+gem_type_resource = [ExtResource( "2_3b2qe" ), ExtResource( "3_q7w40" ), ExtResource( "4_qfpc8" ), ExtResource( "5_ym6ux" ), ExtResource( "6_4lq38" )]
 
 [node name="GemSprite" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-texture = ExtResource( "2_13v6n" )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GemSprite")

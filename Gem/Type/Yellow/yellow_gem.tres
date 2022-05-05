@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b8lmt6jjqomgj"]
+
+[ext_resource type="Script" path="res://Gem/Type/GemType.gd" id="1_bwxx7"]
+[ext_resource type="Texture2D" uid="uid://b2bh2632qonig" path="res://Gem/Type/Yellow/yellow_gem.png" id="2_qwrqn"]
+
+[resource]
+script = ExtResource( "1_bwxx7" )
+color = null
+texture = ExtResource( "2_qwrqn" )
+name = "Yellow"

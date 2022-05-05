@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bi1xslivrxdr8"]
 
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_lt81b"]
-[ext_resource type="PackedScene" uid="uid://drgp1qn7mfbe0" path="res://Gem/gem.tscn" id="2_e3nyd"]
+[ext_resource type="PackedScene" uid="uid://cqa3hqblyrr5o" path="res://Gem/gem.tscn" id="2_e3nyd"]
 [ext_resource type="PackedScene" uid="uid://cepkqx1j6ic20" path="res://Cell/cell.tscn" id="3_4cwfp"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource( "1_lt81b" )
 gem_scene = ExtResource( "2_e3nyd" )
 cell_scene = ExtResource( "3_4cwfp" )
-board_size = Vector2i(12, 7)
-cell_size = 110
+board_size = Vector2i(12, 8)
+cell_size = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

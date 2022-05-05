@@ -16,7 +16,8 @@ func _ready():
 
 	if (gem_types.size() > 0):
 		type = gem_types[randi() % gem_types.size()]
-		gem_sprite.modulate = type.color
+		if type.texture != null:
+			gem_sprite.texture = type.texture
 
 
 func spawn() -> void:

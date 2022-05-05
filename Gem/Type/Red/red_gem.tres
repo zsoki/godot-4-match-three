@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bnc042g6nb18t"]
+
+[ext_resource type="Script" path="res://Gem/Type/GemType.gd" id="1_jm1um"]
+[ext_resource type="Texture2D" uid="uid://b115un8o4etvi" path="res://Gem/Type/Red/red_gem.png" id="2_y5c4j"]
+
+[resource]
+script = ExtResource( "1_jm1um" )
+color = Color(1, 0, 0, 1)
+texture = ExtResource( "2_y5c4j" )
+name = "Red"

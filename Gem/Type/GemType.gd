@@ -2,5 +2,5 @@ class_name GemType
 extends Resource
 
 
-@export var color: Color
+@export var texture: Texture2D
 @export var name: String
