@@ -10,7 +10,7 @@ func play_animation() -> void:
 		animation_event.play_animation()
 
 #	TODO hack for waiting for the animations
-	await Engine.get_main_loop().create_timer(.4).timeout
+	await Engine.get_main_loop().create_timer(.35).timeout
 	_animation_events.clear()
 
 

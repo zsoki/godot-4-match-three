@@ -31,7 +31,7 @@ func run_game_event() -> void:
 					
 					empty_cell.gem = replace_cell.gem
 					replace_cell.gem = null
-					drop_animation_event.add(MoveAnimationEvent.new(empty_cell.gem, empty_cell))
+					drop_animation_event.add(DropAnimationEvent.new(empty_cell.gem, empty_cell))
 					break
 	
 	_game_manager.animation_event_queue.push_front(drop_animation_event)
