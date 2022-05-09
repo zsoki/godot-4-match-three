@@ -69,6 +69,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Gem/Type/GemType.gd"
 }, {
+"base": "GameEvent",
+"class": &"MatchGameEvent",
+"language": &"GDScript",
+"path": "res://Events/Game/MatchGameEvent.gd"
+}, {
 "base": "AnimationEvent",
 "class": &"MoveAnimationEvent",
 "language": &"GDScript",
@@ -78,6 +83,21 @@ _global_script_classes=[{
 "class": &"MoveGameEvent",
 "language": &"GDScript",
 "path": "res://Events/Game/MoveGameEvent.gd"
+}, {
+"base": "AnimationEvent",
+"class": &"ScoreAnimationEvent",
+"language": &"GDScript",
+"path": "res://Events/Animation/ScoreAnimationEvent.gd"
+}, {
+"base": "GameEvent",
+"class": &"ScoreGameEvent",
+"language": &"GDScript",
+"path": "res://Events/Game/ScoreGameEvent.gd"
+}, {
+"base": "Node2D",
+"class": &"ScoreLabel",
+"language": &"GDScript",
+"path": "res://Cell/ScoreLabel.gd"
 }, {
 "base": "AnimationEvent",
 "class": &"SpawnAnimationEvent",
@@ -102,8 +122,12 @@ _global_script_class_icons={
 "GameManager": "",
 "Gem": "",
 "GemType": "",
+"MatchGameEvent": "",
 "MoveAnimationEvent": "",
 "MoveGameEvent": "",
+"ScoreAnimationEvent": "",
+"ScoreGameEvent": "",
+"ScoreLabel": "",
 "SpawnAnimationEvent": "",
 "SpawnGameEvent": ""
 }

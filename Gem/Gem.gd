@@ -11,13 +11,23 @@ var type: GemType
 
 
 func _ready():
-	var gem_types: Array[Resource]
-	for res in gem_type_resource: gem_types.append(res)
+	var gem_types: Array[GemType]
+	var acc_weights: Array[float]
+	var total_weight := 0.0
+	
+	for resource in gem_type_resource:
+		var gem_type := resource as GemType
+		total_weight += gem_type.weight
+		gem_types.append(gem_type)
+		acc_weights.append(total_weight)
 
+	var roll := randf_range(0.0, total_weight)
 	if (gem_types.size() > 0):
-		type = gem_types[randi() % gem_types.size()]
-		if type.texture != null:
-			gem_sprite.texture = type.texture
+		for type_index in range(0, gem_types.size()):
+			if acc_weights[type_index] > roll:
+				type = gem_types[type_index]
+				break
+		gem_sprite.texture = type.texture
 
 
 func spawn() -> void:

@@ -22,5 +22,5 @@ func run_game_event() -> void:
 				composite_animation_event.add(SpawnAnimationEvent.new(gem))
 	
 	_game_manager.animation_event_queue.push_front(composite_animation_event)
-	_game_manager.game_event_queue.push_front(ClearGameEvent.new(_game_manager))
+	_game_manager.game_event_queue.push_front(MatchGameEvent.new(_game_manager))
 
