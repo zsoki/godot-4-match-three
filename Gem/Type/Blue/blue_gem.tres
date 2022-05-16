@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dxayvnnedlk3d"]
+[gd_resource type="Resource" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Gem/Type/GemType.gd" id="1_17fq2"]
-[ext_resource type="Texture2D" uid="uid://43h16jmywajo" path="res://Gem/Type/Blue/blue_gem.png" id="2_815ra"]
+[ext_resource type="Script" path="res://Gem/Type/gem_type.gd" id="1_17fq2"]
+[ext_resource type="Texture2D" uid="uid://ogxy2w1y0um5" path="res://Gem/Type/Blue/blue_gem.png" id="2_815ra"]
 
 [resource]
 script = ExtResource( "1_17fq2" )

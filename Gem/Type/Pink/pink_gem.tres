@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dj5bbtp7l1q56"]
+[gd_resource type="Resource" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Gem/Type/GemType.gd" id="1_jbubk"]
+[ext_resource type="Script" path="res://Gem/Type/gem_type.gd" id="1_jbubk"]
 [ext_resource type="Texture2D" uid="uid://7163rmeej50d" path="res://Gem/Type/Pink/pink_gem.png" id="2_fh8v7"]
 
 [resource]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqa3hqblyrr5o"]
+[gd_scene load_steps=11 format=3 uid="uid://bs1scura3d2re"]
 
-[ext_resource type="Script" path="res://Gem/Gem.gd" id="1_2j1pi"]
-[ext_resource type="Resource" uid="uid://bnc042g6nb18t" path="res://Gem/Type/Red/red_gem.tres" id="2_3b2qe"]
-[ext_resource type="Resource" uid="uid://xx6ouxw4c5k2" path="res://Gem/Type/Green/green_gem.tres" id="3_q7w40"]
-[ext_resource type="Resource" uid="uid://dxayvnnedlk3d" path="res://Gem/Type/Blue/blue_gem.tres" id="4_qfpc8"]
-[ext_resource type="Resource" uid="uid://dj5bbtp7l1q56" path="res://Gem/Type/Pink/pink_gem.tres" id="5_ym6ux"]
-[ext_resource type="Resource" uid="uid://b8lmt6jjqomgj" path="res://Gem/Type/Yellow/yellow_gem.tres" id="6_4lq38"]
+[ext_resource type="Script" path="res://Gem/gem.gd" id="1_g6kcs"]
+[ext_resource type="Resource" path="res://Gem/Type/Red/red_gem.tres" id="2_3b2qe"]
+[ext_resource type="Resource" path="res://Gem/Type/Green/green_gem.tres" id="3_q7w40"]
+[ext_resource type="Resource" path="res://Gem/Type/Blue/blue_gem.tres" id="4_qfpc8"]
+[ext_resource type="Resource" path="res://Gem/Type/Pink/pink_gem.tres" id="5_ym6ux"]
+[ext_resource type="Resource" path="res://Gem/Type/Yellow/yellow_gem.tres" id="6_4lq38"]
 
 [sub_resource type="Animation" id="Animation_qtojp"]
 length = 0.001
@@ -86,7 +86,7 @@ _data = {
 }
 
 [node name="Gem" type="Node2D"]
-script = ExtResource( "1_2j1pi" )
+script = ExtResource( "1_g6kcs" )
 gem_type_resource = [ExtResource( "2_3b2qe" ), ExtResource( "3_q7w40" ), ExtResource( "4_qfpc8" ), ExtResource( "5_ym6ux" ), ExtResource( "6_4lq38" )]
 
 [node name="GemSprite" type="Sprite2D" parent="."]
