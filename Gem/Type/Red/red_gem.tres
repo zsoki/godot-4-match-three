@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://gjgbpod6cb5l"]
 
 [ext_resource type="Script" path="res://Gem/Type/gem_type.gd" id="1_jm1um"]
 [ext_resource type="Texture2D" uid="uid://b115un8o4etvi" path="res://Gem/Type/Red/red_gem.png" id="2_y5c4j"]
@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource( "1_jm1um" )
 texture = ExtResource( "2_y5c4j" )
+color = Color(0.878431, 0.192157, 0.235294, 1)
 name = "Red"
-score = 2.0
+score = 20.0
 weight = 0.5

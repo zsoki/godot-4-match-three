@@ -10,9 +10,10 @@ func _ready():
 	visible = false
 
 
-func play_animation(score: int) -> void:
+func play_animation(score: int, color: Color) -> void:
 	visible = true
 	score_label.text = "%s" % score
+	score_label.add_theme_color_override("font_outline_color", color)
 	animation_player.play("Pop")
 	while await animation_player.animation_finished != "Pop":
 		pass

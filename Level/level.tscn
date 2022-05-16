@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0j200mnlc661"]
+[gd_scene load_steps=5 format=3 uid="uid://dulpotliaiio0"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_lt81b"]
 [ext_resource type="PackedScene" uid="uid://bs1scura3d2re" path="res://Gem/gem.tscn" id="2_e3nyd"]
 [ext_resource type="PackedScene" path="res://Cell/cell.tscn" id="3_4cwfp"]
-[ext_resource type="PackedScene" uid="uid://c4kwcpj7sqwru" path="res://Cell/score_label.tscn" id="4_7tjp8"]
+[ext_resource type="PackedScene" uid="uid://djioh5k1t71xo" path="res://Effects/score_label.tscn" id="4_7tjp8"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource( "1_lt81b" )

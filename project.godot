@@ -17,7 +17,7 @@ _global_script_classes=[{
 "base": "Line2D",
 "class": &"Arrow",
 "language": &"GDScript",
-"path": "res://Cell/arrow.gd"
+"path": "res://Effects/arrow.gd"
 }, {
 "base": "Area2D",
 "class": &"Cell",
@@ -97,7 +97,7 @@ _global_script_classes=[{
 "base": "Node2D",
 "class": &"ScoreLabel",
 "language": &"GDScript",
-"path": "res://Cell/score_label.gd"
+"path": "res://Effects/score_label.gd"
 }, {
 "base": "AnimationEvent",
 "class": &"SpawnAnimationEvent",

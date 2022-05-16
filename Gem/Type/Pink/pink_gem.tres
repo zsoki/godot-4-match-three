@@ -1,10 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://con8s0meqw1lt"]
 
 [ext_resource type="Script" path="res://Gem/Type/gem_type.gd" id="1_jbubk"]
 [ext_resource type="Texture2D" uid="uid://7163rmeej50d" path="res://Gem/Type/Pink/pink_gem.png" id="2_fh8v7"]
 
 [resource]
 script = ExtResource( "1_jbubk" )
-color = Color(1, 0, 1, 1)
 texture = ExtResource( "2_fh8v7" )
+color = Color(1, 0.4, 0.721569, 1)
 name = "Purple"
+score = 10.0
+weight = 1.0
