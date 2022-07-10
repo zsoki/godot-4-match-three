@@ -6,8 +6,16 @@ extends Node
 @export var cell_scene: PackedScene
 @export var score_scene: PackedScene
 @export var board_size: Vector2i
+@export var refill_rect: Vector2i
 @export var cell_size: int
 @export var required_cells_for_match := 3
+
+@export var camera_2d: Camera2D
+@export var gem_parent: Node
+@export var cell_parent: Node
+@export var score_parent: Node
+@export var score_label: Label
+@export var board_rect: ReferenceRect
 
 var selected_cells: Array[Cell]
 var coord_to_cell: Dictionary = {}
@@ -21,25 +29,17 @@ var _score := 0:
 		_score = value
 		score_label.text = "Score: %s" % _score
 
-@onready var camera_2d: Camera2D = $Camera2D
-@onready var gem_parent: Node = $GemParent
-@onready var cell_parent: Node = $CellParent
-@onready var score_parent: Node = $ScoreParent
-@onready var score_label: Label = $ScoreLabel
-
 
 func _ready():
-	var view_rect_size := camera_2d.get_viewport().get_visible_rect().size
-
-	var horizontal_margin: int = (view_rect_size.x - (cell_size * board_size.x)) / 2
-	var vertical_margin: int = (view_rect_size.y - (cell_size * board_size.y)) / 2
+	var cell_width := board_rect.size.x / board_size.x
+	var cell_height := board_rect.size.y / board_size.y
 	
 	for row in range(0, board_size.y):
 		for col in range(0, board_size.x):
 			var coord := Vector2i(col, row)
 			
-			var x_pos: int = horizontal_margin + col * cell_size + cell_size / 2
-			var y_pos: int = vertical_margin + row * cell_size
+			var x_pos: int = board_rect.position.x + col * cell_width
+			var y_pos: int = board_rect.position.y + row * cell_height
 			var pos := Vector2(x_pos, y_pos)
 			
 			var cell: Cell = _instantiate_cell(coord, pos)

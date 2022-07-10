@@ -2,8 +2,8 @@ class_name ScoreLabel
 extends Node2D
 
 
-@onready var score_label: Label = $ScoreLabel
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var score_label: Label
+@export var animation_player: AnimationPlayer
 
 
 func _ready():

@@ -3,6 +3,8 @@ extends Area2D
 
 
 @export var cell_shape: RectangleShape2D
+@export var debug_label: Label
+@export var arrow: Line2D
 
 var coord: Vector2i
 var gem: Gem:
@@ -11,9 +13,6 @@ var selected: bool = false:
 	set = _set_selected
 
 var _game_manager: GameManager
-
-@onready var debug_label: Label = $DebugLabel
-@onready var arrow: Line2D = $Arrow
 
 
 func _draw():

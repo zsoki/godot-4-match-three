@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bl2i1dyuuiomo"]
 
 [ext_resource type="Script" path="res://Cell/cell.gd" id="1_3p61d"]
 [ext_resource type="Shape2D" uid="uid://b2mnalcq0wgfl" path="res://Cell/cell_shape_2d.tres" id="2_bl6ru"]
 [ext_resource type="PackedScene" path="res://Effects/arrow.tscn" id="3_xaql2"]
 
-[node name="Cell" type="Area2D"]
-script = ExtResource( "1_3p61d" )
-cell_shape = ExtResource( "2_bl6ru" )
+[node name="Cell" type="Area2D" node_paths=PackedStringArray("debug_label", "arrow")]
+script = ExtResource("1_3p61d")
+cell_shape = ExtResource("2_bl6ru")
+debug_label = NodePath("DebugLabel")
+arrow = NodePath("Arrow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = ExtResource( "2_bl6ru" )
+shape = ExtResource("2_bl6ru")
 
 [node name="DebugLabel" type="Label" parent="."]
 offset_left = -32.0
@@ -19,7 +21,7 @@ offset_bottom = -28.0
 text = "(X, Y)"
 horizontal_alignment = 1
 
-[node name="Arrow" parent="." instance=ExtResource( "3_xaql2" )]
+[node name="Arrow" parent="." instance=ExtResource("3_xaql2")]
 points = PackedVector2Array(0, 0)
 
 [connection signal="input_event" from="." to="." method="_on_cell_input_event"]

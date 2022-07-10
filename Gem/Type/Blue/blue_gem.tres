@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ogxy2w1y0um5" path="res://Gem/Type/Blue/blue_gem.png" id="2_815ra"]
 
 [resource]
-script = ExtResource( "1_17fq2" )
-texture = ExtResource( "2_815ra" )
+script = ExtResource("1_17fq2")
+texture = ExtResource("2_815ra")
 color = Color(0, 0.615686, 1, 1)
 name = "Blue"
 score = 10.0

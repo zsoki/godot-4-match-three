@@ -136,8 +136,8 @@ _global_script_class_icons={
 
 config/name="Match 3"
 run/main_scene="res://Level/level.tscn"
-config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
+config/icon="res://icon.png"
 
 [autoload]
 

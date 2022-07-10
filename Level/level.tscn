@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_lt81b"]
 [ext_resource type="PackedScene" uid="uid://bs1scura3d2re" path="res://Gem/gem.tscn" id="2_e3nyd"]
-[ext_resource type="PackedScene" path="res://Cell/cell.tscn" id="3_4cwfp"]
+[ext_resource type="PackedScene" uid="uid://bl2i1dyuuiomo" path="res://Cell/cell.tscn" id="3_4cwfp"]
 [ext_resource type="PackedScene" uid="uid://djioh5k1t71xo" path="res://Effects/score_label.tscn" id="4_7tjp8"]
 
-[node name="GameManager" type="Node"]
-script = ExtResource( "1_lt81b" )
-gem_scene = ExtResource( "2_e3nyd" )
-cell_scene = ExtResource( "3_4cwfp" )
-score_scene = ExtResource( "4_7tjp8" )
-board_size = Vector2i(16, 8)
+[node name="GameManager" type="Node" node_paths=PackedStringArray("camera_2d", "gem_parent", "cell_parent", "score_parent", "score_label", "board_rect")]
+script = ExtResource("1_lt81b")
+gem_scene = ExtResource("2_e3nyd")
+cell_scene = ExtResource("3_4cwfp")
+score_scene = ExtResource("4_7tjp8")
+board_size = Vector2i(14, 8)
 cell_size = 90
+camera_2d = NodePath("Camera2D")
+gem_parent = NodePath("GemParent")
+cell_parent = NodePath("CellParent")
+score_parent = NodePath("ScoreParent")
+score_label = NodePath("ScoreLabel")
+board_rect = NodePath("BoardRect")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1952.0
@@ -34,9 +40,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
+offset_left = -896.0
 offset_top = 388.0
-offset_right = 192.0
+offset_right = -512.0
 offset_bottom = 476.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -46,11 +52,25 @@ text = "Play turn (or enter)"
 metadata/_edit_use_custom_anchors = false
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 864.0
-offset_top = 32.0
-offset_right = 1248.0
-offset_bottom = 96.0
+offset_left = 64.0
+offset_top = 800.0
+offset_right = 448.0
+offset_bottom = 864.0
 theme_override_font_sizes/font_size = 40
 text = "Score:"
+
+[node name="BoardRect" type="ReferenceRect" parent="."]
+offset_left = 736.0
+offset_top = 416.0
+offset_right = 1920.0
+offset_bottom = 1088.0
+mouse_filter = 2
+
+[node name="RefillRect" type="ReferenceRect" parent="."]
+offset_left = 736.0
+offset_top = 32.0
+offset_right = 1920.0
+offset_bottom = 416.0
+mouse_filter = 2
 
 [connection signal="pressed" from="PlayTurnButton" to="." method="_on_play_turn_button_pressed"]

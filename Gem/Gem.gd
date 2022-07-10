@@ -3,11 +3,10 @@ extends Node2D
 
 
 @export var gem_type_resource: Array[Resource]
+@export var gem_sprite: Sprite2D
+@export var animation_player: AnimationPlayer
 
 var type: GemType
-
-@onready var gem_sprite: Sprite2D = $GemSprite
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready():
