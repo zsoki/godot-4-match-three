@@ -15,14 +15,14 @@ func run_game_event() -> void:
 	var coord_to_cell := _game_manager.coord_to_cell
 	
 	for col in board_size.x:
-		for row in range(board_size.y - 1, -1, -1):
+		for row in range(board_size.y - 1, -board_size.y, -1):
 			var coord := Vector2i(col, row)
 			var empty_cell: Cell = coord_to_cell[coord]
 			
 			if empty_cell.gem == null:
 				var replace_row := row
 				
-				while not replace_row <= 0:
+				while not replace_row <= -board_size.y:
 					replace_row -= 1
 					var replace_coord := Vector2i(col, replace_row)
 					var replace_cell: Cell = coord_to_cell[replace_coord]

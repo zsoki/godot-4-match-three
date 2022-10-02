@@ -2,7 +2,7 @@ class_name Gem
 extends Node2D
 
 
-@export var gem_type_resource: Array[Resource]
+@export var gem_types: Array[GemType]
 @export var gem_sprite: Sprite2D
 @export var animation_player: AnimationPlayer
 
@@ -10,14 +10,11 @@ var type: GemType
 
 
 func _ready():
-	var gem_types: Array[GemType]
 	var acc_weights: Array[float]
 	var total_weight := 0.0
 	
-	for resource in gem_type_resource:
-		var gem_type := resource as GemType
+	for gem_type in gem_types:
 		total_weight += gem_type.weight
-		gem_types.append(gem_type)
 		acc_weights.append(total_weight)
 
 	var roll := randf_range(0.0, total_weight)

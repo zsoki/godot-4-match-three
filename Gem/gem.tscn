@@ -87,7 +87,7 @@ _data = {
 
 [node name="Gem" type="Node2D" node_paths=PackedStringArray("gem_sprite", "animation_player")]
 script = ExtResource("1_g6kcs")
-gem_type_resource = [ExtResource("2_v5tum"), ExtResource("3_li4dn"), ExtResource("4_txm8u"), ExtResource("5_c6wtn"), ExtResource("6_nfhel")]
+gem_types = [ExtResource("2_v5tum"), ExtResource("3_li4dn"), ExtResource("4_txm8u"), ExtResource("5_c6wtn"), ExtResource("6_nfhel")]
 gem_sprite = NodePath("GemSprite")
 animation_player = NodePath("AnimationPlayer")
 

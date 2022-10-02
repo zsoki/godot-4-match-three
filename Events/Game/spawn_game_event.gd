@@ -14,7 +14,7 @@ func run_game_event() -> void:
 	var coord_to_cell := _game_manager.coord_to_cell
 	
 	for col in board_size.x:
-		for row in board_size.y:
+		for row in range(-board_size.y, board_size.y - 1, 1):
 			var coord := Vector2i(col, row)
 			var cell: Cell = coord_to_cell[coord]
 			if cell.gem == null:

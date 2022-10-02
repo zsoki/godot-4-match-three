@@ -39,8 +39,9 @@ tracks/0/path = NodePath(".:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"points": PackedFloat32Array(-32, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -49,8 +50,9 @@ tracks/1/path = NodePath("ScoreLabel:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"points": PackedFloat32Array(-32, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -59,8 +61,9 @@ tracks/2/path = NodePath("ScoreLabel:modulate:r")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -69,8 +72,9 @@ tracks/3/path = NodePath("ScoreLabel:modulate:g")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -79,8 +83,9 @@ tracks/4/path = NodePath("ScoreLabel:modulate:b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -89,8 +94,9 @@ tracks/5/path = NodePath("ScoreLabel:modulate:a")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -130,6 +136,7 @@ score_label = NodePath("ScoreLabel")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
