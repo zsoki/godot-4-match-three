@@ -19,47 +19,42 @@ func run_game_event() -> void:
 
 	var moved_gem := from_cell.gem
 
-	var from_col_range: Array[int]
-	var from_row_range: Array[int]
-	var to_col_range: Array[int]
-	var to_row_range: Array[int]
+	var from_col_range: Array
+	var from_row_range: Array
+	var to_col_range: Array
+	var to_row_range: Array
 	
 	var direction: Vector2i = (to_cell.coord - from_cell.coord).clamp(Vector2i(-1, -1), Vector2i(1, 1))
-	match direction:
-		Vector2i.RIGHT:
+	if (direction in [Vector2i.RIGHT, Vector2i.LEFT]):
+		if (Vector2i.RIGHT == direction):
 			from_col_range = range(from_cell.coord.x + 1, to_cell.coord.x + 1)
 			for from_col in from_col_range: to_col_range.append(from_col - 1)
-			continue
-		Vector2i.LEFT:
+		elif (Vector2i.LEFT == direction):
 			from_col_range = range(from_cell.coord.x - 1, to_cell.coord.x - 1, -1)
 			for from_col in from_col_range: to_col_range.append(from_col + 1)
-			continue
-		Vector2i.RIGHT, Vector2i.LEFT:
-			for i in from_col_range.size():
-				from_row_range.append(from_cell.coord.y)
-				to_row_range.append(from_cell.coord.y)
-		Vector2i.DOWN:
+		for i in from_col_range.size():
+			from_row_range.append(from_cell.coord.y)
+			to_row_range.append(from_cell.coord.y)
+	if (direction in [Vector2i.DOWN, Vector2i.UP]):
+		if (Vector2i.DOWN == direction):
 			from_row_range = range(from_cell.coord.y + 1, to_cell.coord.y + 1)
 			for from_row in from_row_range: to_row_range.append(from_row - 1)
-			continue
-		Vector2i.UP:
+		if (Vector2i.UP == direction):
 			from_row_range = range(from_cell.coord.y - 1, to_cell.coord.y - 1, -1)
 			for from_row in from_row_range: to_row_range.append(from_row + 1)
-			continue
-		Vector2i.DOWN, Vector2i.UP:
-			for i in from_row_range.size():
-				from_col_range.append(from_cell.coord.x)
-				to_col_range.append(from_cell.coord.x)
+		for i in from_row_range.size():
+			from_col_range.append(from_cell.coord.x)
+			to_col_range.append(from_cell.coord.x)
 
 	var batch_move_event := CompositeAnimationEvent.new()
 	var empty_cell: Cell = null
-	var coord_to_cell := _game_manager.coord_to_cell
+	var coord_to_cell: Dictionary = _game_manager.coord_to_cell
 	
 	for i in from_col_range.size():
 		var cell_from: Cell = coord_to_cell[Vector2i(from_col_range[i], from_row_range[i])]
 		var cell_to: Cell = coord_to_cell[Vector2i(to_col_range[i], to_row_range[i])]
 		empty_cell = _move_gem(cell_from, cell_to, batch_move_event)
-
+	
 	if empty_cell != null:
 		empty_cell.gem = moved_gem
 		batch_move_event.add(MoveAnimationEvent.new(moved_gem, empty_cell))

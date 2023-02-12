@@ -12,7 +12,6 @@ cell_scene = ExtResource("3_4cwfp")
 score_scene = ExtResource("4_7tjp8")
 board_size = Vector2i(14, 8)
 cell_size = 90
-required_cells_for_match = null
 camera_2d = NodePath("Camera2D")
 gem_parent = NodePath("GemParent")
 cell_parent = NodePath("CellParent")
@@ -28,7 +27,6 @@ color = Color(0.282353, 0.321569, 0.494118, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-current = true
 
 [node name="CellParent" type="Node" parent="."]
 

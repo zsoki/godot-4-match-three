@@ -8,130 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "RefCounted",
-"class": &"AnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/animation_event.gd"
-}, {
-"base": "Line2D",
-"class": &"Arrow",
-"language": &"GDScript",
-"path": "res://Effects/arrow.gd"
-}, {
-"base": "Area2D",
-"class": &"Cell",
-"language": &"GDScript",
-"path": "res://Cell/cell.gd"
-}, {
-"base": "GameEvent",
-"class": &"ClearGameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/clear_game_event.gd"
-}, {
-"base": "AnimationEvent",
-"class": &"CompositeAnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/composite_animation_event.gd"
-}, {
-"base": "AnimationEvent",
-"class": &"DestroyAnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/destroy_animation_event.gd"
-}, {
-"base": "AnimationEvent",
-"class": &"DropAnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/drop_animation_event.gd"
-}, {
-"base": "GameEvent",
-"class": &"DropGameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/drop_game_event.gd"
-}, {
-"base": "RefCounted",
-"class": &"GameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/game_event.gd"
-}, {
-"base": "Node",
-"class": &"GameManager",
-"language": &"GDScript",
-"path": "res://Level/level.gd"
-}, {
-"base": "Node2D",
-"class": &"Gem",
-"language": &"GDScript",
-"path": "res://Gem/gem.gd"
-}, {
-"base": "Resource",
-"class": &"GemType",
-"language": &"GDScript",
-"path": "res://Gem/Type/gem_type.gd"
-}, {
-"base": "GameEvent",
-"class": &"MatchGameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/match_game_event.gd"
-}, {
-"base": "AnimationEvent",
-"class": &"MoveAnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/move_animation_event.gd"
-}, {
-"base": "GameEvent",
-"class": &"MoveGameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/move_game_event.gd"
-}, {
-"base": "AnimationEvent",
-"class": &"ScoreAnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/score_animation_event.gd"
-}, {
-"base": "GameEvent",
-"class": &"ScoreGameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/score_game_event.gd"
-}, {
-"base": "Node2D",
-"class": &"ScoreLabel",
-"language": &"GDScript",
-"path": "res://Effects/score_label.gd"
-}, {
-"base": "AnimationEvent",
-"class": &"SpawnAnimationEvent",
-"language": &"GDScript",
-"path": "res://Events/Animation/spawn_animation_event.gd"
-}, {
-"base": "GameEvent",
-"class": &"SpawnGameEvent",
-"language": &"GDScript",
-"path": "res://Events/Game/spawn_game_event.gd"
-}]
-_global_script_class_icons={
-"AnimationEvent": "",
-"Arrow": "",
-"Cell": "",
-"ClearGameEvent": "",
-"CompositeAnimationEvent": "",
-"DestroyAnimationEvent": "",
-"DropAnimationEvent": "",
-"DropGameEvent": "",
-"GameEvent": "",
-"GameManager": "",
-"Gem": "",
-"GemType": "",
-"MatchGameEvent": "",
-"MoveAnimationEvent": "",
-"MoveGameEvent": "",
-"ScoreAnimationEvent": "",
-"ScoreGameEvent": "",
-"ScoreLabel": "",
-"SpawnAnimationEvent": "",
-"SpawnGameEvent": ""
-}
-
 [application]
 
 config/name="Match 3"
@@ -158,7 +34,7 @@ select={
 }
 end_turn={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

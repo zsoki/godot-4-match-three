@@ -22,7 +22,6 @@ func _process(delta):
 		FollowTarget.GEM:
 			if _gem == null:
 				_follow_target = FollowTarget.NONE
-				continue
 			set_point_position(1, _gem.position - global_position)
 		_: pass
 
