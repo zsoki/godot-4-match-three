@@ -3,11 +3,14 @@ extends GameEvent
 
 
 var _game_manager: GameManager
-var _matched_cell_sets: Array = []
-var _cell_to_match_set: Dictionary = {}
+var _matched_cell_sets: Array
+var _cell_to_match_set: Dictionary
 
-func _init(game_manager: GameManager):
+
+func _init(game_manager: GameManager, matched_cell_sets: Array, cell_to_match_set: Dictionary):
 	_game_manager = game_manager
+	_matched_cell_sets = matched_cell_sets
+	_cell_to_match_set = cell_to_match_set
 
 
 func run_game_event() -> void:

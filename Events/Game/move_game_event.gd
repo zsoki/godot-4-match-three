@@ -60,6 +60,7 @@ func run_game_event() -> void:
 		batch_move_event.add(MoveAnimationEvent.new(moved_gem, empty_cell))
 	
 	_game_manager.animation_event_queue.push_front(batch_move_event)
+	_game_manager.game_event_queue.push_front(ExplodeGameEvent.new(_game_manager, to_cell))
 
 
 func _move_gem(from_cell: Cell, to_cell: Cell, batch_move_event: CompositeAnimationEvent) -> Cell:

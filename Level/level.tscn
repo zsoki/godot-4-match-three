@@ -12,6 +12,7 @@ cell_scene = ExtResource("3_4cwfp")
 score_scene = ExtResource("4_7tjp8")
 board_size = Vector2i(14, 8)
 cell_size = 90
+required_cells_for_match = 3
 camera_2d = NodePath("Camera2D")
 gem_parent = NodePath("GemParent")
 cell_parent = NodePath("CellParent")

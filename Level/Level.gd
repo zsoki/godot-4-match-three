@@ -7,7 +7,7 @@ extends Node
 @export var score_scene: PackedScene
 @export var board_size: Vector2i
 @export var cell_size: int
-@export var required_cells_for_match := 3
+@export var required_cells_for_match: int
 
 @export var camera_2d: Camera2D
 @export var gem_parent: Node
@@ -105,7 +105,6 @@ func _play_animation() -> void:
 func _play_turn() -> void:
 	while selected_cells.size() > 1:
 		game_event_queue.push_front(MoveGameEvent.new(self))
-		game_event_queue.push_front(MatchGameEvent.new(self))
 
 		while game_event_queue.size() > 0:
 			game_event_queue.pop_back().run_game_event()

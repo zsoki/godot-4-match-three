@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs1scura3d2re"]
+[gd_scene load_steps=12 format=3 uid="uid://bs1scura3d2re"]
 
 [ext_resource type="Script" path="res://Gem/gem.gd" id="1_g6kcs"]
 [ext_resource type="Resource" uid="uid://dffykbybm1usk" path="res://Gem/Type/Blue/blue_gem.tres" id="2_v5tum"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://con8s0meqw1lt" path="res://Gem/Type/Pink/pink_gem.tres" id="4_txm8u"]
 [ext_resource type="Resource" uid="uid://gjgbpod6cb5l" path="res://Gem/Type/Red/red_gem.tres" id="5_c6wtn"]
 [ext_resource type="Resource" uid="uid://4msfueproaxi" path="res://Gem/Type/Yellow/yellow_gem.tres" id="6_nfhel"]
+[ext_resource type="Resource" uid="uid://cj46ejhy1e2ur" path="res://Gem/Type/Bomb/bomb.tres" id="7_48rf7"]
 
 [sub_resource type="Animation" id="Animation_xngc8"]
 resource_name = "Destroy"
@@ -87,7 +88,7 @@ _data = {
 
 [node name="Gem" type="Node2D" node_paths=PackedStringArray("gem_sprite", "animation_player")]
 script = ExtResource("1_g6kcs")
-gem_types = Array[Resource("res://Gem/Type/gem_type.gd")]([ExtResource("2_v5tum"), ExtResource("3_li4dn"), ExtResource("4_txm8u"), ExtResource("5_c6wtn"), ExtResource("6_nfhel")])
+gem_types = Array[Resource("res://Gem/Type/gem_type.gd")]([ExtResource("2_v5tum"), ExtResource("3_li4dn"), ExtResource("4_txm8u"), ExtResource("5_c6wtn"), ExtResource("6_nfhel"), ExtResource("7_48rf7")])
 gem_sprite = NodePath("GemSprite")
 animation_player = NodePath("AnimationPlayer")
 

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GemType" load_steps=3 format=3 uid="uid://cj46ejhy1e2ur"]
+
+[ext_resource type="Script" path="res://Gem/Type/gem_type.gd" id="1_sicg4"]
+[ext_resource type="Texture2D" uid="uid://bm4l825vruigp" path="res://icon.png" id="2_wpot4"]
+
+[resource]
+script = ExtResource("1_sicg4")
+texture = ExtResource("2_wpot4")
+color = Color(0, 0, 0, 1)
+name = "Bomb"
+score = 100.0
+spawn_chance_weight = 0.2

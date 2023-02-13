@@ -14,7 +14,7 @@ func _ready():
 	var total_weight := 0.0
 	
 	for gem_type in gem_types:
-		total_weight += gem_type.weight
+		total_weight += gem_type.spawn_chance_weight
 		acc_weights.append(total_weight)
 
 	var roll := randf_range(0.0, total_weight)
